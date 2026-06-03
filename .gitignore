@@ -1,0 +1,59 @@
+# Unity generated folders
+Library/
+Temp/
+Logs/
+UserSettings/
+build/
+
+# IDE / generated project files
+.vs/
+*.csproj
+*.sln
+*.user
+*.userprefs
+*.pidb
+*.booproj
+*.svd
+*.pdb
+*.mdb
+*.opendb
+*.VC.db
+
+# Build outputs
+Build/
+Builds/
+Dist/
+Release/
+*.apk
+*.aab
+*.unitypackage
+*.zip
+
+# Local backups
+*.bak_*
+Assets/_Recovery/
+
+# OS files
+Thumbs.db
+Desktop.ini
+.DS_Store
+
+# Local-only automation/runtime state
+.codex/
+.agents/
+
+# Public repo scope: exclude heavy art SOURCE/staging (120MB of experiments & backups).
+# Runtime art is in Assets/Resources/ and is published; ArtSource is dev-only.
+Assets/ArtSource/
+Assets/ArtSource.meta
+
+# Secrets / credentials (never publish)
+.env
+*.env
+.env.*
+secrets/
+*.key
+*.pem
+*.keystore
+*.p12
+serviceAccount*.json

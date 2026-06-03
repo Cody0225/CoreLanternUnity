@@ -1,0 +1,182 @@
+﻿[
+    {
+        "file":  "Assets/Resources/Audio/BGM.wav",
+        "id":  "BGM",
+        "kind":  "BGM",
+        "use":  "Current global battle/menu loop loaded by CoreLanternGame",
+        "source":  "Generated locally by Tools/GenerateStarterAudio.ps1",
+        "license":  "Project-original deterministic synthesis; no third-party samples",
+        "sampleRate":  22050,
+        "durationSeconds":  24
+    },
+    {
+        "file":  "Assets/Resources/Audio/BGM_Stage2.wav",
+        "id":  "BGM_Stage2",
+        "kind":  "BGM",
+        "use":  "Stage 2 Lava Cache loop loaded when Lava Cache is selected",
+        "source":  "Generated locally by Tools/GenerateStarterAudio.ps1",
+        "license":  "Project-original deterministic synthesis; no third-party samples",
+        "sampleRate":  22050,
+        "durationSeconds":  24
+    },
+    {
+        "file":  "Assets/Resources/Audio/BGM_Stage3.wav",
+        "id":  "BGM_Stage3",
+        "kind":  "BGM",
+        "use":  "Stage 3 Broken Core Network placeholder loop",
+        "source":  "Generated locally by Tools/GenerateStarterAudio.ps1",
+        "license":  "Project-original deterministic synthesis; no third-party samples",
+        "sampleRate":  22050,
+        "durationSeconds":  28
+    },
+    {
+        "file":  "Assets/Resources/Audio/BGM_Stage4.wav",
+        "id":  "BGM_Stage4",
+        "kind":  "BGM",
+        "use":  "Stage 4 Frost Vault placeholder loop",
+        "source":  "Generated locally by Tools/GenerateStarterAudio.ps1",
+        "license":  "Project-original deterministic synthesis; no third-party samples",
+        "sampleRate":  22050,
+        "durationSeconds":  32
+    },
+    {
+        "file":  "Assets/Resources/Audio/BGM_Stage5.wav",
+        "id":  "BGM_Stage5",
+        "kind":  "BGM",
+        "use":  "Stage 5 Storm Spire placeholder loop",
+        "source":  "Generated locally by Tools/GenerateStarterAudio.ps1",
+        "license":  "Project-original deterministic synthesis; no third-party samples",
+        "sampleRate":  22050,
+        "durationSeconds":  24
+    },
+    {
+        "file":  "Assets/Resources/Audio/BGM_Boss_Pulswyrm.wav",
+        "id":  "BGM_Boss_Pulswyrm",
+        "kind":  "BGM",
+        "use":  "Mid-boss Pulswyrm loop loaded during boss encounter",
+        "source":  "Generated locally by Tools/GenerateStarterAudio.ps1",
+        "license":  "Project-original deterministic synthesis; no third-party samples",
+        "sampleRate":  22050,
+        "durationSeconds":  24
+    },
+    {
+        "file":  "Assets/Resources/Audio/BGM_Boss_Nullwyrm.wav",
+        "id":  "BGM_Boss_Nullwyrm",
+        "kind":  "BGM",
+        "use":  "Final boss Nullwyrm loop loaded during boss encounter",
+        "source":  "Generated locally by Tools/GenerateStarterAudio.ps1",
+        "license":  "Project-original deterministic synthesis; no third-party samples",
+        "sampleRate":  22050,
+        "durationSeconds":  32
+    },
+    {
+        "file":  "Assets/Resources/Audio/BGM_BossPulswyrm.wav",
+        "id":  "BGM_BossPulswyrm",
+        "kind":  "BGM",
+        "use":  "Legacy mid-boss Pulswyrm fallback alias loaded by older CoreLanternGame paths",
+        "source":  "Generated locally by Tools/GenerateStarterAudio.ps1",
+        "license":  "Project-original deterministic synthesis; no third-party samples",
+        "sampleRate":  22050,
+        "durationSeconds":  24
+    },
+    {
+        "file":  "Assets/Resources/Audio/BGM_BossNullwyrm.wav",
+        "id":  "BGM_BossNullwyrm",
+        "kind":  "BGM",
+        "use":  "Legacy final boss Nullwyrm fallback alias loaded by older CoreLanternGame paths",
+        "source":  "Generated locally by Tools/GenerateStarterAudio.ps1",
+        "license":  "Project-original deterministic synthesis; no third-party samples",
+        "sampleRate":  22050,
+        "durationSeconds":  32
+    },
+    {
+        "file":  "Assets/Resources/Audio/Shoot.wav",
+        "id":  "Shoot",
+        "kind":  "SE",
+        "use":  "Player projectile",
+        "source":  "Generated locally by Tools/GenerateStarterAudio.ps1",
+        "license":  "Project-original deterministic synthesis; no third-party samples",
+        "sampleRate":  22050,
+        "durationSeconds":  0.095
+    },
+    {
+        "file":  "Assets/Resources/Audio/Hit.wav",
+        "id":  "Hit",
+        "kind":  "SE",
+        "use":  "Enemy hit",
+        "source":  "Generated locally by Tools/GenerateStarterAudio.ps1",
+        "license":  "Project-original deterministic synthesis; no third-party samples",
+        "sampleRate":  22050,
+        "durationSeconds":  0.12
+    },
+    {
+        "file":  "Assets/Resources/Audio/Kill.wav",
+        "id":  "Kill",
+        "kind":  "SE",
+        "use":  "Enemy destroyed",
+        "source":  "Generated locally by Tools/GenerateStarterAudio.ps1",
+        "license":  "Project-original deterministic synthesis; no third-party samples",
+        "sampleRate":  22050,
+        "durationSeconds":  0.24
+    },
+    {
+        "file":  "Assets/Resources/Audio/Pickup.wav",
+        "id":  "Pickup",
+        "kind":  "SE",
+        "use":  "Data/health pickup and UI confirm",
+        "source":  "Generated locally by Tools/GenerateStarterAudio.ps1",
+        "license":  "Project-original deterministic synthesis; no third-party samples",
+        "sampleRate":  22050,
+        "durationSeconds":  0.16
+    },
+    {
+        "file":  "Assets/Resources/Audio/LevelUp.wav",
+        "id":  "LevelUp",
+        "kind":  "SE",
+        "use":  "Level up and normal upgrade reward",
+        "source":  "Generated locally by Tools/GenerateStarterAudio.ps1",
+        "license":  "Project-original deterministic synthesis; no third-party samples",
+        "sampleRate":  22050,
+        "durationSeconds":  0.72
+    },
+    {
+        "file":  "Assets/Resources/Audio/Evolve.wav",
+        "id":  "Evolve",
+        "kind":  "SE",
+        "use":  "Evolution cut-in",
+        "source":  "Generated locally by Tools/GenerateStarterAudio.ps1",
+        "license":  "Project-original deterministic synthesis; no third-party samples",
+        "sampleRate":  22050,
+        "durationSeconds":  1.42
+    },
+    {
+        "file":  "Assets/Resources/Audio/Fusion.wav",
+        "id":  "Fusion",
+        "kind":  "SE",
+        "use":  "Cross evolution fusion cut-in",
+        "source":  "Generated locally by Tools/GenerateStarterAudio.ps1",
+        "license":  "Project-original deterministic synthesis; no third-party samples",
+        "sampleRate":  22050,
+        "durationSeconds":  1.88
+    },
+    {
+        "file":  "Assets/Resources/Audio/Boss.wav",
+        "id":  "Boss",
+        "kind":  "SE",
+        "use":  "Boss warning and boss emphasis",
+        "source":  "Generated locally by Tools/GenerateStarterAudio.ps1",
+        "license":  "Project-original deterministic synthesis; no third-party samples",
+        "sampleRate":  22050,
+        "durationSeconds":  0.92
+    },
+    {
+        "file":  "Assets/Resources/Audio/GameOver.wav",
+        "id":  "GameOver",
+        "kind":  "SE",
+        "use":  "Defeat result",
+        "source":  "Generated locally by Tools/GenerateStarterAudio.ps1",
+        "license":  "Project-original deterministic synthesis; no third-party samples",
+        "sampleRate":  22050,
+        "durationSeconds":  1.45
+    }
+]

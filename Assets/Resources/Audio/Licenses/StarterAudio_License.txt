@@ -1,0 +1,35 @@
+﻿CoreLanternUnity Starter Audio License
+Generated: 2026-06-01 23:00:58 +09:00
+
+Files:
+- Assets/Resources/Audio/BGM.wav
+- Assets/Resources/Audio/BGM_Stage2.wav
+- Assets/Resources/Audio/BGM_Stage3.wav
+- Assets/Resources/Audio/BGM_Stage4.wav
+- Assets/Resources/Audio/BGM_Stage5.wav
+- Assets/Resources/Audio/BGM_Boss_Pulswyrm.wav
+- Assets/Resources/Audio/BGM_Boss_Nullwyrm.wav
+- Assets/Resources/Audio/BGM_BossPulswyrm.wav
+- Assets/Resources/Audio/BGM_BossNullwyrm.wav
+- Assets/Resources/Audio/Shoot.wav
+- Assets/Resources/Audio/Hit.wav
+- Assets/Resources/Audio/Kill.wav
+- Assets/Resources/Audio/Pickup.wav
+- Assets/Resources/Audio/LevelUp.wav
+- Assets/Resources/Audio/Evolve.wav
+- Assets/Resources/Audio/Fusion.wav
+- Assets/Resources/Audio/Boss.wav
+- Assets/Resources/Audio/GameOver.wav
+
+Source:
+Generated locally by Tools/GenerateStarterAudio.ps1 using deterministic synthesis.
+No third-party samples, melodies, stems, recordings, or AI service outputs are included.
+
+Project use:
+Created for the CoreLanternUnity project as project-original placeholder audio.
+Commercial use in this project is intended to be permitted. No attribution required.
+
+Notes:
+This is a starter audio kit, not final production sound design.
+2026-06-01 comfort pass: reduced obvious upward BGM phrases and softened rapid-fire hit/shoot/kill SE for long-session play.
+If replaced by downloaded or AI-generated audio, keep each source license beside the file.

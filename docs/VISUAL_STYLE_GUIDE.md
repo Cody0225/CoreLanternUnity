@@ -1,0 +1,267 @@
+# Visual Style Guide — Eggcore Protocol / Embercore Studio
+
+**作成日**: 2026-05-28
+**用途**: Codex (素材生成エージェント) への統一指示書。これに従えば全アセットが同じトーンになる。
+**読者**: Codex (主)、ユーザー (承認用)
+
+---
+
+## 🎨 0. ブランドカラーパレット (絶対遵守)
+
+すべてのアセットは以下のパレットを基本とする。
+
+```
+─────────────────────────────────────────
+プライマリ (画面の 70%)
+  Background Dark    #0B1418   宇宙/深淵、UI 背景
+  Background Mid     #1A2A33   パネル背景
+  Background Light   #2C3E47   セパレータ・カードフレーム
+
+セカンダリ (画面の 20%)
+  Core Cyan          #8BC8FF   光、コアエネルギー、SPEED 系
+  Core Cyan Bright   #B8E0FF   ハイライト、reward 表示
+
+アクセント (画面の 10%)
+  Ember Red          #C84A1F   火種、危険、Pulswyrm、enrage
+  Ember Bright       #E66A3F   ハイライト
+  Magenta Boss       #FF54F3   Nullwyrm、Core Mark、Phase 2
+  Reward Yellow      #FFCE3B   データ、Elite、勝利
+
+サポート
+  Guard Green        #5BC85E   GUARD ルート、回復
+  Power Orange       #FF9D2C   POWER ルート、攻撃強化
+  Phase Violet       #A55BFF   Phase 回避、Phantom
+─────────────────────────────────────────
+```
+
+**HEX → RGB 換算 (Unity Color() コード用)**:
+```csharp
+Color hex_0B1418 = new Color(0.043f, 0.078f, 0.094f, 1f);
+Color hex_8BC8FF = new Color(0.545f, 0.784f, 1.000f, 1f);
+Color hex_C84A1F = new Color(0.784f, 0.290f, 0.122f, 1f);
+Color hex_FF54F3 = new Color(1.000f, 0.329f, 0.953f, 1f);
+Color hex_FFCE3B = new Color(1.000f, 0.808f, 0.231f, 1f);
+```
+
+---
+
+## 📐 1. キャラクター画像 (Partner_S{n}_*)
+
+### サイズ・フォーマット
+- **必須サイズ**: 512×512 px
+- **フォーマット**: PNG、透過 (アルファチャネル必須)
+- **四隅 alpha=0** (背景透過必須、ValidateCodexAssets.ps1 で自動チェック)
+- **キャラ本体**: 中央配置、画像高さの 70-85% (周囲に余白 15-30%)
+
+### スタイル
+- **アートスタイル**: ネオン・サイバー風アニメイラスト
+- **線**: 黒ベースのアウトライン (1-3 px)
+- **シェーディング**: セルシェーディング 2-3 段階 (写実不可)
+- **エフェクト**: 光輪 / オーラ / グリッチ要素を控えめに
+
+### キャラ別アクセントカラー
+| キャラ | カラー軸 | 補足 |
+|---|---|---|
+| Cobalt Pup | Cyan #8BC8FF | バランス青狼 |
+| Ember Drake | Orange #FF9D2C | 弾幕橙竜 |
+| Sage Hare | Green #5BC85E | 防衛緑兎賢者 |
+| Hex Cat | Violet #A55BFF | 連鎖紫魔猫 |
+| Drift Fox | Pink #FF7AB8 | 回避桃狐 |
+| Iron Bear | Silver #B8B8C8 | 装甲黒熊 |
+| Wraith Lynx | White #F0F0F8 | 近接白狼 |
+| Genesis Core | Gold #FFCE3B | 隠し黄金 |
+| Halo Caster | Deep Navy + Cyan halo | ファンネル |
+| Pulse Hydra | Magenta #FF54F3 | レーザー |
+| Solar Anchor | Warm Gold #E8A030 | コア共鳴 |
+
+### 進化段階 (L0 → L3) で変化させる要素
+| 要素 | L0 | L1 | L2 | L3 |
+|---|---|---|---|---|
+| サイズ | 100% | 105% | 112% | 120% |
+| 装備量 | なし | 少 | 中 | 多 |
+| 発光 | なし | 微弱 | 中 | 強 |
+| シルエット明瞭度 | シンプル | 細部追加 | 翼/装備 | 大型化 |
+
+### ルート別の差別化 (L1-L3)
+- **SPEED (R1)**: 流線形、動的ポーズ、青みのトレイル
+- **POWER (R2)**: 大型武器、戦闘ポーズ、橙の光輪
+- **GUARD (R3)**: 盾・装甲、安定ポーズ、緑の防御エフェクト
+
+### クロス進化 (F1-F6) の表現
+「メインキャラがリンクキャラを取り込んだ姿」
+- 本体はメインキャラを維持
+- リンクキャラの特徴 (色・モチーフ) を吸収・装備として表現
+- 「2 体合体」ではなく「1 体強化」
+
+---
+
+## 🏷 2. UI 要素
+
+### フォント
+- **タイトル / ロゴ**: シャープな現代的サンセリフ (Eurostile / Orbitron / Bebas Neue 系)
+- **本文 (日本語)**: 游ゴシック / Noto Sans JP
+- **本文 (英語)**: Inter / Roboto / Source Sans Pro
+- **数値**: 等幅数字推奨 (HUD で揃って見える)
+
+### ボタン
+- 角丸 8 px
+- 通常: BG = #1A2A33、文字 = #B8E0FF
+- ホバー: BG = #2C3E47、輪郭 = #8BC8FF
+- 押下: BG = #0B1418、文字 = #FFCE3B
+- 非アクティブ: BG = #1A2A33 + opacity 50%
+
+### パネル
+- 背景: rgba(11, 20, 24, 0.92) (深い半透明)
+- 縁取り: 1-2 px #2C3E47
+- 角丸: 4-8 px
+
+### アイコン
+- 単色 + 透過 PNG 推奨
+- 32×32 / 64×64 / 128×128 の 3 サイズ
+- スタイル: シンプル線画、塗りなし or 単色塗り
+
+---
+
+## 🎬 3. カットイン演出 (Background_*)
+
+### 進化カットイン (Background_Evolution)
+- サイズ: 1920×1080
+- 中央放射状の光線
+- 主色: cyan + magenta グラデ
+- 文字スペース: 中央下部 30% に空きを残す (キャラ名表示用)
+
+### クロス進化カットイン (Background_CrossEvolution)
+- サイズ: 1920×1080
+- 2 色衝突する波紋エフェクト
+- 主色: 融合する 2 色 (例: Nova Aegis なら cyan + green)
+
+### ボスカットイン (Background_BossPulswyrm / BossNullwyrm)
+- サイズ: 1920×1080
+- 警告系の暗い背景 + 赤/紫のグリッチノイズ
+- Pulswyrm: 橙系 #C84A1F
+- Nullwyrm: マゼンタ系 #FF54F3
+
+### リザルト背景 (Background_Victory / Defeat)
+- サイズ: 1920×1080
+- Victory: 上昇する光粒、cyan + yellow
+- Defeat: 沈むダークトーン、ember red 残光
+
+---
+
+## 🎮 4. ゲーム内オブジェクト
+
+### 敵キャラ
+- **基本**: 256×256 透過 PNG
+- **シルエット重視**: 影だけで何の敵か分かること (Vampire Survivors 流)
+- **色分け**:
+  - Runner: 赤 #FF3333
+  - Brute: マゼンタ #C84AC0
+  - Shooter: 黄 #FFCE3B
+  - Dasher: cyan #5BC8FF
+  - Bomber: 橙 #FF9D2C
+  - Phantom: 紫 #A55BFF
+- **Elite 化**: 既存敵に金色オーラ (#FFCE3B + alpha 0.4) を重ねる
+
+### ハザード
+- **サイズ可変** (50×50 〜 256×256)
+- **危険色を明示**: 溶岩=赤、氷=青、雷=黄、汚染=紫
+- **テレグラフ可能**: 攻撃前の予告状態を別画像で
+
+### ピックアップ
+- **データ**: 64×64、cyan キラキラ
+- **HP 回復**: 64×64、green プラス記号
+- **EXP**: ピックアップ後にゲージへ吸い込まれる
+
+---
+
+## 🎵 5. オーディオ素材
+
+### BGM
+- **長さ**: 60-90 秒、自然ループ
+- **フォーマット**: WAV 44.1kHz / 48kHz、16-bit ステレオ
+- **音量**: -14 LUFS 目安
+- **ループ点**: フェードなしで切れ目なくつながる
+- **ファイルサイズ**: ≤ 5 MB
+
+### SE
+- **長さ**: 0.05-2.0 秒 (種類別、`AudioManifest.json` 参照)
+- **音量**: -6 dBFS (クリップ寸前まで大きめ)
+- **重複再生**: 同 SE が短時間で多発しても破綻しない設計
+- **既存仮版とのピッチ近似**: 急に違和感が出ないよう、procedural 仮版の周波数帯を踏襲
+
+### 商用利用ライセンス
+- Pixabay Music / Free Music Archive / Soundbible 等の **CC0 / Royalty-Free** 素材推奨
+- 各素材のライセンス文書を `Assets/Resources/Audio/Licenses/` に保存
+- `docs/AUDIO_LICENSE_LOG_TEMPLATE.md` の台帳に追記
+
+---
+
+## 📦 6. Steam ストア用カプセル画像
+
+`docs/CODEX_RELEASE_ORDER.md` の P0-2 参照。要点:
+
+- **8 種規定サイズ厳守** (1 px ズレ NG)
+- **中央付近にタイトルロゴ** + 主人公 + 雰囲気を 1 枚で伝える
+- **テキスト最小限** (Steam 側がタイトル / 価格を別途表示するため)
+- **Library Capsule (600×900)** が最重要 — ライブラリで縦長表示される
+
+---
+
+## 🏷 7. itch.io ストア画像
+
+- **Cover image**: 630×500、不透明 PNG
+- **Screenshots**: 1920×1080、5-8 枚
+- **デモ表記**: ヘッダーに `[DEMO]` バッジを入れる
+
+---
+
+## ✅ 8. アセット検収基準 (Codex 完了確認)
+
+### 共通
+- [ ] 規定サイズ完全一致
+- [ ] フォーマット (PNG / WAV) 正しい
+- [ ] 透過 PNG なら四隅 alpha=0
+- [ ] ファイル名規則準拠 (例: `Partner_S{n}_R{r}_L{l}.png`)
+- [ ] 配置先正しい (`Assets/Resources/Skins/` 等)
+- [ ] `.meta` ファイル添付 (Unity の import settings)
+
+### 画像
+- [ ] sRGB カラープロファイル
+- [ ] 解像度メタ 72 dpi 以上
+- [ ] 過剰圧縮なし (JPG ノイズ等)
+
+### 音声
+- [ ] 44.1k / 48k Hz, 16-bit
+- [ ] -14 LUFS (BGM) / -6 dBFS (SE) 目安
+- [ ] ループ違和感なし
+
+検証ツール: `Tools/ValidateCodexAssets.ps1` (Claude が作成予定)
+
+---
+
+## 📋 9. 例: 良い vs 悪い
+
+### キャラ画像
+✅ **良い例**: 中央配置、明確なシルエット、cyan アクセント、L3 で大型化
+- `Assets/Resources/Skins/Partner_S1_R1_L3.png` (Cobalt SPEED L3) ← 採用
+
+❌ **悪い例**:
+- 背景が透明でない (白塗り背景)
+- キャラが端に寄りすぎ
+- L0 と L3 の差が分からない
+- 名前と見た目が一致しない (Fox なのに犬っぽい)
+
+---
+
+## 🔄 10. アップデート時のルール
+
+新しいキャラ・新ステージを追加する場合:
+1. 本ガイドの「キャラ別アクセントカラー」表に新 species を追加
+2. 必要なファイル一覧を `CODEX_RELEASE_ORDER.md` に追記
+3. 既存アセットとのトーン整合性を維持
+
+---
+
+最終更新: 2026-05-28
+担当: Claude (秘書)
+読者: Codex (素材生成)
