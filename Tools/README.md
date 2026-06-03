@@ -117,6 +117,28 @@ HUD9、Stage 4/5 支援素材、V2 UI素材、任意fallbackの現在値をClaud
 
 ---
 
+## ⚪ ワンショット Python スクリプト (実行済み / 原則再実行しない)
+
+特定キャラ・特定 wave の素材を **一度だけ** 生成/加工した履歴スクリプト。成果物は採用済みで、
+通常運用では再実行しない。**削除はせず履歴として残置** (再現性・経緯追跡のため)。
+将来的に整理する場合も「移動」は呼び出しパスを壊すため要合意。
+
+| スクリプト | 一回限りの用途 |
+|---|---|
+| `generate_s1_speed_wave1_pixelart.py` | S1 Speed wave1 ピクセルアート生成 |
+| `extract_s1_speed_wave1_from_generated_sheet.py` | 同シートから切り出し |
+| `build_s1_wave2_power_guard.py` | S1 wave2 Power/Guard 構築 |
+| `process_s1_f1_nova_aegis_wave3.py` | S1 F1 Nova Aegis wave3 加工 |
+| `process_s1_guard_l3_imagegen_candidate.py` | S1 Guard L3 imagegen 候補処理 |
+| `redraw_s1_speed_l3_anatomy.py` | S1 Speed L3 アナトミー描き直し |
+| `replace_s1_speed_l3_clean_adult.py` | S1 Speed L3 差し替え |
+| `redraw_hexcat_driftfox_baked_palette.py` | HexCat/DriftFox パレット焼き込み描き直し |
+
+> `Tools/Deprecated/` には廃止確定スクリプトを置く (例: `..._BAD_20260601.ps1`)。
+> 上記ワンショットは「廃止」ではなく「実行済み履歴」なので Deprecated とは区別する。
+
+---
+
 ## 🛠 使用パターン例
 
 ### パターン A: Claude が CoreLanternGame.cs を編集した時
@@ -168,6 +190,7 @@ HUD9、Stage 4/5 支援素材、V2 UI素材、任意fallbackの現在値をClaud
 
 2. **編集後は `CheckCompileHealth.ps1` を必ず実行**
    - odd-quote / brace / swallowed code / mojibake marker warning / Roslyn を 1 コマンドで実行
+   - Claude Code では `/check-health` スラッシュコマンドからも呼べる (本体スクリプトのラッパー)
 
 3. **完了報告には検査結果を含める**
    - `odd-quote=0 / brace diff=0 / swallowed=0 / compile errors=0 (OK)`
