@@ -207,8 +207,30 @@ Claude 側の節約ルール:
 
 ---
 
+### K. Claude Code カスタム構成 (agents / skills / commands) の使い分け（2026-06-03 追加）
+
+棚卸し結果は `docs/AGENTS_SKILLS_COMMANDS_AUDIT_20260603.md`。`.claude/` 配下は新規追加のみで、
+既存スクリプト・ルールは未変更（Codex は `HANDOFF_FOR_CODEX.md` 駆動で `.claude/` を参照しないため非干渉）。
+
+**プロジェクト固有のスラッシュコマンド** (`.claude/commands/`):
+- `/check-health` — `Tools/CheckCompileHealth.ps1` のラッパー。cs 編集後の必須検証。
+- `/validate-assets [カテゴリ]` — `Tools/ValidateCodexAssets.ps1` のラッパー。
+
+**プロジェクト固有のサブエージェント** (`.claude/agents/`):
+- `cs-guardian` — `CoreLanternGame.cs` 編集の門番。EDIT_LOCK 確認→Edit/Write 限定→検証を内蔵。
+  cs のバグ修正・バランス調整・素材のコード接続を依頼するときに使う。
+
+**ビルトインの使い分け**:
+- 探索: 結論だけ欲しい広域検索→`Explore` / 実装を含む多段タスク→`general-purpose`。
+- レビュー: diff の品質→`/code-review`（主軸）。`review`=PR 単位、`security-review`=任意の保険。
+- `verify` / `run` は **Windows 実機専用**（Unity 6000.4.7f1 は Windows のみ）。Linux リモートでは使わない。
+- `claude-api` / `keybindings-help` / `init` は本プロジェクト非対象（`init` は本 CLAUDE.md 上書きリスクのため使用禁止）。
+
+---
+
 ## 参照
 
+- `docs/AGENTS_SKILLS_COMMANDS_AUDIT_20260603.md` — agents/skills/commands 棚卸し監査
 - `docs/POSTMORTEM_20260528_MOJIBAKE.md` — 大規模文字化け事故の詳細
 - `HANDOFF_FOR_CLAUDE_COMPILE_FIX_20260528.md` — 復旧作業の引継ぎ書
 - `~/.claude/CLAUDE.md` — グローバル運用ルール (秘書/部署制)
