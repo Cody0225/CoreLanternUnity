@@ -12,6 +12,29 @@ Codex は、このプロジェクトで作業を始める前に **必ずこの `
 
 このルールは、このファイル内の他のすべての手順より優先する。
 
+## 🟢 連絡: agents/skills/commands 監査と `.claude/` 追加（2026-06-03・Claude）
+
+**結論: Codex の作業手順は一切変更なし。** 下記の追加はすべて Claude Code 専用の `.claude/` 配下で、
+Codex は参照不要・非干渉。Codex は今まで通り本ファイルを全文読んでから着手する。
+
+### 追加したもの（ブランチ `claude/agents-skills-commands-audit-jc1kU`）
+1. `docs/AGENTS_SKILLS_COMMANDS_AUDIT_20260603.md` — agents/skills/commands の棚卸し・スコアリング監査。
+   重複/未使用/保守コスト高/本作に不要 を抽出（**削除はせず提案のみ**）。
+2. `.claude/commands/check-health.md` — スラッシュコマンド `/check-health`。`Tools/CheckCompileHealth.ps1` のラッパー（本体不変）。
+3. `.claude/commands/validate-assets.md` — スラッシュコマンド `/validate-assets`。`Tools/ValidateCodexAssets.ps1` のラッパー（本体不変）。
+4. `.claude/agents/cs-guardian.md` — cs 編集の門番サブエージェント（Claude 用）。
+5. `Tools/README.md` 追記 — 未記載だったワンショット py 8本を「実行済み履歴」として明示（**削除・移動なし。呼び出しパス不変**）。`/check-health` への導線追記。
+6. `CLAUDE.md` セクション K 追記 — 新 `.claude` ツールの使い分け方針（既存 A〜J ルールは不変）。
+
+### Codex への影響: なし
+- 既存スクリプト本体・引数仕様・パスは全て不変。`ValidateCodexAssets.ps1` / `CheckCompileHealth.ps1` はそのまま手打ちで使える。
+- 役割分担（cs=Claude 専任、素材=Codex、HANDOFF 必読）も変更なし。
+- 自動実行 hook（SessionStart / PreToolUse）は **あえて未導入**（Windows/Linux 互換と「勝手に動く」リスク回避）。導入は要合意。
+
+### 動作確認
+- `/check-health` を Linux リモートで実行 → brace diff=0 / odd-quote=0。
+  Roslyn/mojibake/swallowed の本検証は Windows 実機の `.ps1` が必要、という想定どおりの挙動。
+
 ## 🟢 進行中タスク: OSS公開（2026-06-04・Claude→Codex 引き継ぎ）
 
 ユーザーは Eggcore Protocol を GitHub で OSS 公開中。Claude がレート制限のため Codex へ引き継ぎ。
