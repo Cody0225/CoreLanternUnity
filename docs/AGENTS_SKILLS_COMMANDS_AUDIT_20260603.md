@@ -174,4 +174,22 @@ CLAUDE.md の厳格ルールが「人手の口約束」で止まっており、C
 
 ---
 
+## 8. 実装済み (2026-06-03 / Codex 連携非干渉を確認の上)
+
+Codex は `HANDOFF_FOR_CODEX.md`(markdown)で駆動し `.claude/` を参照しないため、以下の追加は
+Codex ワークフローと完全に直交する。**自動実行する hook は使わず、純マークダウン定義のみ**で
+着手(何も自動実行しない=既存挙動ゼロ干渉)。既存ファイル・スクリプト・ルールは未変更。
+
+| 追加ファイル | 種別 | 内容 | 既存への影響 |
+|---|---|---|---|
+| `.claude/commands/check-health.md` | スラッシュコマンド | `CheckCompileHealth.ps1` のラッパー (`/check-health`) | なし(新規) |
+| `.claude/commands/validate-assets.md` | スラッシュコマンド | `ValidateCodexAssets.ps1` のラッパー (`/validate-assets`) | なし(新規) |
+| `.claude/agents/cs-guardian.md` | サブエージェント | cs 安全編集の門番。EDIT_LOCK 確認→Edit/Write 限定→検証を内蔵 | なし(新規) |
+
+未実装(将来オプション・要合意): SessionStart hook / cs 用 PreToolUse hook / Tools README 二分表追記 /
+CLAUDE.md 使い分けセクション。hook 系は Windows/Linux クロス互換と「自動実行」の性質上、
+導入は段階的・要合意とする。
+
+---
+
 最終更新: 2026-06-03
