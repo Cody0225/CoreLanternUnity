@@ -12,6 +12,34 @@ Codex は、このプロジェクトで作業を始める前に **必ずこの `
 
 このルールは、このファイル内の他のすべての手順より優先する。
 
+## 🟢 進行中タスク: OSS公開（2026-06-04・Claude→Codex 引き継ぎ）
+
+ユーザーは Eggcore Protocol を GitHub で OSS 公開中。Claude がレート制限のため Codex へ引き継ぎ。
+
+### 確定した方針（変えない）
+- ソースコード = **MIT**（`LICENSE`：`Copyright (c) 2026 Cody0225`）
+- アセット（画像/音/ロゴ/キャラ/ブランド）= **All Rights Reserved・再利用不可**（`ASSET_LICENSE.md`）
+- 公開範囲 = **ゲーム本体のみ**。`Assets/ArtSource/`（120MB・実験/バックアップ）は公開しない
+
+### 完了済み（Claude）
+- `LICENSE`（MIT, Cody0225）/ `README.md`（ライセンス記述を確定）/ `ASSET_LICENSE.md`（確定版）/ `.gitignore`（ArtSource＋秘密ファイル除外）
+- 秘密スキャン: クリーン（APIキー/トークン/メール/パスワード無し）
+- git: 旧サンドボックス .git は削除済み。**GitHub Desktop が新しい“ユーザー所有”の .git を作成・初回コミット済み**（追跡 1457 ファイル＝ArtSource/Library 除外・Skins 595枚含む・クリーン）
+- GitHub アカウント: **Cody0225**（新規）
+
+### 残り（ユーザーの GUI 操作）
+- GitHub Desktop で **Publish repository（まず Private）** → `github.com/Cody0225/CoreLanternUnity` で確認 → OKなら Settings → Change visibility → **Public**
+
+### 🔴 Codex への警告（厳守）
+- **git 操作（init/commit/push 等）を Codex サンドボックスから実行しない。** 以前 Codex のサンドボックスが .git を作り、所有者不整合（dubious ownership）を起こして削除・再作成する羽目になった。git は今 **GitHub Desktop（ユーザー所有）**が管理。**触らない・git init しない。**
+- **`Assets/ArtSource/` を公開リポジトリに戻さない**（意図的に .gitignore で除外）。
+- `CoreLanternGame.cs` は従来通り **編集禁止**（Claude 専任）。
+- Codex の画像生成は現在不調（無関係な教育図＝States of Matter 等を返す）。**画像生成は当てにしない**（復帰確認は英語最小プロンプトで）。
+
+### 非OSSのペンディング（参考）
+- `docs/PENDING_IMAGEGEN_TASKS.md`（S4/S5陰影・F2〜F6融合・HUD素材リニューアル＝全部 imagegen 復帰待ち）
+- `docs/IMPROVEMENTS_BACKLOG.md`（HUD配置・レアリティ/★ 等のバッチ改善）
+
 ## 🔴 2026-06-02 改定: 素材品質ゲート（トークン浪費・後追い修正の撲滅）
 
 2026-06-02、相棒6体ピクセルアート発注で「初回生成 → 色調整 → 不透明度修復 → ゴミ除去」と
