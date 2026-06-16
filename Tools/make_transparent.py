@@ -2,8 +2,9 @@
 """
 make_transparent.py — Batch background removal + optional resize for character PNGs.
 
-Removes a SOLID-color background (magenta / white / any) by flooding from the 4 corners
-(border-connected only, so same-color areas INSIDE the character are protected). Optionally
+Removes a SOLID-color background (magenta / white / any) via global color-key from the corner
+color (the bg color is assumed NOT present in the character, so enclosed bg gaps between legs/
+under the belly are removed too -- no leftover pink blobs). Optionally
 fits the character into a square canvas (aspect-preserving, centered, transparent).
 Already-transparent inputs are passed through (and only resized if --size is given).
 
@@ -39,10 +40,8 @@ def remove_bg(im):
     rgb = np.asarray(im.convert("RGB")).astype(np.float32)
     bg = corner_bg(rgb)
     dist = np.sqrt(((rgb - bg) ** 2).sum(axis=2))
-    bgmask = dist < BG_TOL
-    lbl, _ = ndimage.label(bgmask)
-    border = set(np.unique(np.concatenate([lbl[0, :], lbl[-1, :], lbl[:, 0], lbl[:, -1]]))); border.discard(0)
-    fg = ~np.isin(lbl, list(border))
+    bgmask = dist < BG_TOL  # global key: the solid bg color is not part of the character, so remove it everywhere
+    fg = ~bgmask            # (enclosed bg gaps from prowling/leg poses are background too -> removed, no pink blob)
     if EDGE_ERODE > 0:
         fg = ndimage.binary_erosion(fg, iterations=EDGE_ERODE, border_value=0)
     alpha = np.where(fg, 255, 0).astype(np.uint8)
